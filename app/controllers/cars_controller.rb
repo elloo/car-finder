@@ -14,12 +14,12 @@ class CarsController < ApplicationController
 
   # GET /cars/new
   def new
-    @car = Car.new
     # if the user is not logged in redirect to the login page
     # else redirect to the cars form page
     if user_signed_in?
-      # if the user has create a profile show the cars form else redirect to creating a profile page
+      # if the user has created a profile show the cars form else redirect to creating a profile page
        if current_user.profile
+        @car = Car.new
         # render cars form page
        else
          redirect_to new_profile_path
